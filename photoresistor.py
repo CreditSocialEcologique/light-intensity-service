@@ -5,10 +5,9 @@ import aiohttp
 
 async def send_request(url, data):
     try:
-        timeout = aiohttp.ClientTimeout(total=5)  # Set the timeout to 5 seconds
         async with aiohttp.ClientSession() as session:
             print(f"Sending request to {url}")
-            async with session.post(url, data=data, timeout=timeout) as response:
+            async with session.post(url, data=data) as response:
                 print(f"Request sent to {url}")
     except:
         print(f"Request to {url} failed")
